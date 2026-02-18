@@ -2,8 +2,8 @@
 set -euo pipefail
 
 # macOS launchd user agent for auto-sync + auto-push
-PLIST_PATH="$HOME/Library/LaunchAgents/com.moltbot.config-sync-push.plist"
-CONFIG_DIR="${MOLTBOT_CONFIG_DIR:-$HOME/moltbot-config}"
+PLIST_PATH="$HOME/Library/LaunchAgents/com.openclaw.config-sync-push.plist"
+CONFIG_DIR="${OPENCLAW_CONFIG_DIR:-$HOME/openclaw-config}"
 
 cat > "$PLIST_PATH" <<EOF
 <?xml version="1.0" encoding="UTF-8"?>
@@ -11,7 +11,7 @@ cat > "$PLIST_PATH" <<EOF
 <plist version="1.0">
 <dict>
   <key>Label</key>
-  <string>com.moltbot.config-sync-push</string>
+  <string>com.openclaw.config-sync-push</string>
   <key>ProgramArguments</key>
   <array>
     <string>/bin/bash</string>
@@ -25,15 +25,15 @@ cat > "$PLIST_PATH" <<EOF
   <key>StartInterval</key>
   <integer>60</integer>
   <key>StandardOutPath</key>
-  <string>$HOME/Library/Logs/moltbot-config-sync-push.log</string>
+  <string>$HOME/Library/Logs/openclaw-config-sync-push.log</string>
   <key>StandardErrorPath</key>
-  <string>$HOME/Library/Logs/moltbot-config-sync-push.err</string>
+  <string>$HOME/Library/Logs/openclaw-config-sync-push.err</string>
 </dict>
 </plist>
 EOF
 
 launchctl unload "$PLIST_PATH" >/dev/null 2>&1 || true
 launchctl load "$PLIST_PATH"
-launchctl start com.moltbot.config-sync-push
+launchctl start com.openclaw.config-sync-push
 
 echo "Loaded launchd agent: $PLIST_PATH"

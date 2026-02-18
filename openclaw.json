@@ -33,7 +33,7 @@
       "models": {
         "openai-codex/gpt-5.2-codex": {}
       },
-      "workspace": "${MOLTBOT_WORKSPACE}",
+      "workspace": "${OPENCLAW_WORKSPACE}",
       "compaction": {
         "mode": "safeguard"
       },
@@ -103,7 +103,7 @@
     "bind": "loopback",
     "auth": {
       "mode": "token",
-      "token": "${CLAWDBOT_GATEWAY_TOKEN}"
+      "token": "${OPENCLAW_GATEWAY_TOKEN}"
     },
     "tailscale": {
       "mode": "off",

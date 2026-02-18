@@ -8,8 +8,8 @@ source ./.env
 set +a
 
 # Apply config
-cp ./clawdbot.json ~/.clawdbot/clawdbot.json
+cp ./openclaw.json ~/.openclaw/openclaw.json
 
 # Restart gateway to pick up changes
-gateway_cmd="moltbot gateway restart"
+gateway_cmd="openclaw gateway restart"
 $gateway_cmd

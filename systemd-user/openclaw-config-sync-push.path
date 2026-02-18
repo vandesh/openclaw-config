@@ -2,7 +2,7 @@
 Description=Watch Moltbot config for changes (sync + push)
 
 [Path]
-PathChanged=%h/.clawdbot/clawdbot.json
+PathChanged=%h/.openclaw/openclaw.json
 
 [Install]
 WantedBy=default.target

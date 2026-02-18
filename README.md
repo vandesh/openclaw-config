@@ -14,17 +14,17 @@ A clean, portable setup that keeps **secrets off GitHub** while making it easy t
 
 ## 🗂️ What’s in this repo?
 
-- **`clawdbot.json`** → tracked config with `${VAR}` placeholders (no secrets)
+- **`openclaw.json`** → tracked config with `${VAR}` placeholders (no secrets)
 - **`.env`** → **not tracked**, holds secrets on your machine
-- **`.env.example`** → template for new servers (fill `MOLTBOT_WORKSPACE` too)
+- **`.env.example`** → template for new servers (fill `OPENCLAW_WORKSPACE` too)
 
 ### 🧩 Scripts (what they do)
 
 - **`apply-config.sh`** → loads `.env`, applies config, restarts gateway
 - **`apply-from-repo.sh`** → applies repo config to server + restarts gateway
-- **`install-service.sh`** → Linux systemd gateway service (moltbot)
-- **`install-service-macos.sh`** → macOS launchd gateway service (moltbot)
-- **`install-service-windows.ps1`** → Windows Scheduled Task (moltbot)
+- **`install-service.sh`** → Linux systemd gateway service (openclaw)
+- **`install-service-macos.sh`** → macOS launchd gateway service (openclaw)
+- **`install-service-windows.ps1`** → Windows Scheduled Task (openclaw)
 - **`install-config-sync.sh`** → Linux user service to auto‑commit config changes
 - **`sync-config.sh`** → sanitizes secrets → commits updated config
 - **`install-config-sync-autopush.sh`** → Linux auto‑commit **and push**
@@ -65,8 +65,8 @@ Assume you already know Git. Fork/clone first, then follow these steps.
 ## 1) Clone your repo
 
 ```bash
-git clone <YOUR_GIT_URL> ~/moltbot-config
-cd ~/moltbot-config
+git clone <YOUR_GIT_URL> ~/openclaw-config
+cd ~/openclaw-config
 ```
 
 ## 2) Add secrets locally (not in Git)
@@ -121,7 +121,7 @@ sudo loginctl enable-linger $USER
 Manual restart (if needed):
 
 ```bash
-systemctl --user restart moltbot-config-sync.path
+systemctl --user restart openclaw-config-sync.path
 ```
 
 ---
@@ -135,7 +135,7 @@ bash install-config-sync-autopush.sh
 ```
 Manual restart:
 ```bash
-systemctl --user restart moltbot-config-sync-push.path
+systemctl --user restart openclaw-config-sync-push.path
 ```
 
 ### macOS
@@ -155,14 +155,14 @@ Set-ExecutionPolicy Bypass -Scope Process -Force
 ```bash
 bash apply-from-repo.sh
 ```
-This copies `clawdbot.json` from the repo into `~/.clawdbot/` and restarts the gateway.
+This copies `openclaw.json` from the repo into `~/.openclaw/` and restarts the gateway.
 
 ---
 
 ## 🌍 First push to GitHub
 
 ```bash
-cd ~/moltbot-config
+cd ~/openclaw-config
 git remote add origin <YOUR_GIT_URL>
 git push -u origin main
 ```
@@ -177,7 +177,7 @@ bash smoke-test.sh
 ```
 
 - `.env` **never** goes into Git (gitignored)
-- `clawdbot.json` uses **`${VAR}` placeholders**
+- `openclaw.json` uses **`${VAR}` placeholders**
 - Gateway restarts cleanly
 
 ---

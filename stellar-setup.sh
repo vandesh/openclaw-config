@@ -6,8 +6,8 @@ set -euo pipefail
 # - Install gateway service (OS-aware)
 # - Install auto-sync watcher (Linux only)
 
-CONFIG_DIR="${MOLTBOT_CONFIG_DIR:-$HOME/moltbot-config}"
-ENV_FILE="${MOLTBOT_ENV_FILE:-$CONFIG_DIR/.env}"
+CONFIG_DIR="${OPENCLAW_CONFIG_DIR:-$HOME/openclaw-config}"
+ENV_FILE="${OPENCLAW_ENV_FILE:-$CONFIG_DIR/.env}"
 OS="$(uname -s)"
 
 if [[ ! -d "$CONFIG_DIR" ]]; then

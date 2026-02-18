@@ -2,14 +2,14 @@
 set -euo pipefail
 
 # Apply repo config to local Clawdbot/Moltbot config and restart gateway
-CONFIG_DIR="${MOLTBOT_CONFIG_DIR:-$HOME/moltbot-config}"
-TARGET_CONFIG_DIR="${MOLTBOT_TARGET_CONFIG_DIR:-$HOME/.clawdbot}"
+CONFIG_DIR="${OPENCLAW_CONFIG_DIR:-$HOME/openclaw-config}"
+TARGET_CONFIG_DIR="${OPENCLAW_TARGET_CONFIG_DIR:-$HOME/.openclaw}"
 
 cd "$CONFIG_DIR"
 
-cp ./clawdbot.json "$TARGET_CONFIG_DIR/clawdbot.json"
+cp ./openclaw.json "$TARGET_CONFIG_DIR/openclaw.json"
 
 # Restart gateway
-moltbot gateway restart
+openclaw gateway restart
 
-echo "Applied repo config to $TARGET_CONFIG_DIR/clawdbot.json and restarted gateway."
+echo "Applied repo config to $TARGET_CONFIG_DIR/openclaw.json and restarted gateway."

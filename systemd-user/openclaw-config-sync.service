@@ -1,0 +1,7 @@
+[Unit]
+Description=Sync Moltbot config to git repo
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/openclaw-config
+ExecStart=/usr/bin/env bash -lc 'bash %h/openclaw-config/sync-config.sh'

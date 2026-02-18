@@ -6,11 +6,11 @@ if ! command -v systemctl >/dev/null 2>&1; then
   exit 1
 fi
 
-SERVICE_PATH="/etc/systemd/system/moltbot.service"
+SERVICE_PATH="/etc/systemd/system/openclaw.service"
 USER_NAME="${SUDO_USER:-$(id -un)}"
 USER_HOME="$(getent passwd "$USER_NAME" | cut -d: -f6)"
-CONFIG_DIR="${MOLTBOT_CONFIG_DIR:-$USER_HOME/moltbot-config}"
-ENV_FILE="${MOLTBOT_ENV_FILE:-$CONFIG_DIR/.env}"
+CONFIG_DIR="${OPENCLAW_CONFIG_DIR:-$USER_HOME/openclaw-config}"
+ENV_FILE="${OPENCLAW_ENV_FILE:-$CONFIG_DIR/.env}"
 
 if [[ $EUID -ne 0 ]]; then
   echo "Please run as root (sudo)." >&2
@@ -32,8 +32,8 @@ Type=simple
 User=$USER_NAME
 WorkingDirectory=$USER_HOME
 EnvironmentFile=$ENV_FILE
-ExecStart=/usr/bin/env bash -lc 'moltbot gateway start'
-ExecStop=/usr/bin/env bash -lc 'moltbot gateway stop'
+ExecStart=/usr/bin/env bash -lc 'openclaw gateway start'
+ExecStop=/usr/bin/env bash -lc 'openclaw gateway stop'
 Restart=on-failure
 RestartSec=2
 
@@ -44,5 +44,5 @@ EOF
 echo "Wrote $SERVICE_PATH"
 
 systemctl daemon-reload
-systemctl enable --now moltbot
-systemctl status moltbot --no-pager
+systemctl enable --now openclaw
+systemctl status openclaw --no-pager

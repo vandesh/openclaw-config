@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-CONFIG_DIR="${MOLTBOT_CONFIG_DIR:-$HOME/moltbot-config}"
-ENV_FILE="${MOLTBOT_ENV_FILE:-$CONFIG_DIR/.env}"
-SRC="${MOLTBOT_CONFIG_SRC:-$HOME/.clawdbot/clawdbot.json}"
-DST="$CONFIG_DIR/clawdbot.json"
+CONFIG_DIR="${OPENCLAW_CONFIG_DIR:-$HOME/openclaw-config}"
+ENV_FILE="${OPENCLAW_ENV_FILE:-$CONFIG_DIR/.env}"
+SRC="${OPENCLAW_CONFIG_SRC:-$HOME/.openclaw/openclaw.json}"
+DST="$CONFIG_DIR/openclaw.json"
 
 if [[ ! -f "$SRC" ]]; then
   echo "Source config not found: $SRC" >&2
@@ -37,8 +37,8 @@ done < "$ENV_FILE"
 if ! cmp -s "$TMP" "$DST"; then
   mv "$TMP" "$DST"
   cd "$CONFIG_DIR"
-  git add clawdbot.json
-  git commit -m "Sync moltbot config" >/dev/null 2>&1 || true
+  git add openclaw.json
+  git commit -m "Sync openclaw config" >/dev/null 2>&1 || true
 else
   rm -f "$TMP"
 fi

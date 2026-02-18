@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # Sync config and push to remote (requires git creds)
-CONFIG_DIR="${MOLTBOT_CONFIG_DIR:-$HOME/moltbot-config}"
+CONFIG_DIR="${OPENCLAW_CONFIG_DIR:-$HOME/openclaw-config}"
 
 bash "$CONFIG_DIR/sync-config.sh"
 

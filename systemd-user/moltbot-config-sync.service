@@ -1,7 +1,0 @@
-[Unit]
-Description=Sync Moltbot config to git repo
-
-[Service]
-Type=oneshot
-WorkingDirectory=%h/moltbot-config
-ExecStart=/usr/bin/env bash -lc 'bash %h/moltbot-config/sync-config.sh'

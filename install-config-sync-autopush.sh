@@ -8,15 +8,15 @@ if ! command -v systemctl >/dev/null 2>&1; then
   exit 1
 fi
 
-CONFIG_DIR="${MOLTBOT_CONFIG_DIR:-$HOME/moltbot-config}"
+CONFIG_DIR="${OPENCLAW_CONFIG_DIR:-$HOME/openclaw-config}"
 USER_SYSTEMD_DIR="$HOME/.config/systemd/user"
 
 mkdir -p "$USER_SYSTEMD_DIR"
-cp "$CONFIG_DIR/systemd-user/moltbot-config-sync-push.service" "$USER_SYSTEMD_DIR/"
-cp "$CONFIG_DIR/systemd-user/moltbot-config-sync-push.path" "$USER_SYSTEMD_DIR/"
+cp "$CONFIG_DIR/systemd-user/openclaw-config-sync-push.service" "$USER_SYSTEMD_DIR/"
+cp "$CONFIG_DIR/systemd-user/openclaw-config-sync-push.path" "$USER_SYSTEMD_DIR/"
 
 systemctl --user daemon-reload
-systemctl --user enable --now moltbot-config-sync-push.path
+systemctl --user enable --now openclaw-config-sync-push.path
 
 echo "Auto-sync + auto-push enabled (user systemd path)."
 echo "Requires git credentials configured for push."

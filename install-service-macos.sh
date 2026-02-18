@@ -2,9 +2,9 @@
 set -euo pipefail
 
 # macOS launchd user agent
-PLIST_PATH="$HOME/Library/LaunchAgents/com.moltbot.gateway.plist"
-CONFIG_DIR="${MOLTBOT_CONFIG_DIR:-$HOME/moltbot-config}"
-ENV_FILE="${MOLTBOT_ENV_FILE:-$CONFIG_DIR/.env}"
+PLIST_PATH="$HOME/Library/LaunchAgents/com.openclaw.gateway.plist"
+CONFIG_DIR="${OPENCLAW_CONFIG_DIR:-$HOME/openclaw-config}"
+ENV_FILE="${OPENCLAW_ENV_FILE:-$CONFIG_DIR/.env}"
 
 if [[ ! -f "$ENV_FILE" ]]; then
   echo "Env file not found: $ENV_FILE" >&2
@@ -17,27 +17,27 @@ cat > "$PLIST_PATH" <<EOF
 <plist version="1.0">
 <dict>
   <key>Label</key>
-  <string>com.moltbot.gateway</string>
+  <string>com.openclaw.gateway</string>
   <key>ProgramArguments</key>
   <array>
     <string>/bin/bash</string>
     <string>-lc</string>
-    <string>set -a; source "$ENV_FILE"; set +a; moltbot gateway start</string>
+    <string>set -a; source "$ENV_FILE"; set +a; openclaw gateway start</string>
   </array>
   <key>RunAtLoad</key>
   <true/>
   <key>KeepAlive</key>
   <true/>
   <key>StandardOutPath</key>
-  <string>$HOME/Library/Logs/moltbot-gateway.log</string>
+  <string>$HOME/Library/Logs/openclaw-gateway.log</string>
   <key>StandardErrorPath</key>
-  <string>$HOME/Library/Logs/moltbot-gateway.err</string>
+  <string>$HOME/Library/Logs/openclaw-gateway.err</string>
 </dict>
 </plist>
 EOF
 
 launchctl unload "$PLIST_PATH" >/dev/null 2>&1 || true
 launchctl load "$PLIST_PATH"
-launchctl start com.moltbot.gateway
+launchctl start com.openclaw.gateway
 
 echo "Loaded launchd agent: $PLIST_PATH"
