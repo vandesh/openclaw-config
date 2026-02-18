@@ -1,16 +1,19 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.1.24-3",
-    "lastTouchedAt": "2026-01-28T23:39:16.348Z"
+    "lastTouchedVersion": "2026.2.17",
+    "lastTouchedAt": "2026-02-18T22:54:21.297Z"
   },
   "env": {
     "vars": {}
   },
   "wizard": {
-    "lastRunAt": "2026-01-28T23:11:50.664Z",
-    "lastRunVersion": "2026.1.24-3",
+    "lastRunAt": "2026-02-18T22:00:57.141Z",
+    "lastRunVersion": "2026.2.17",
     "lastRunCommand": "doctor",
     "lastRunMode": "local"
+  },
+  "browser": {
+    "enabled": true
   },
   "ui": {
     "assistant": {
@@ -33,7 +36,7 @@
       "models": {
         "openai-codex/gpt-5.2-codex": {}
       },
-      "workspace": "${OPENCLAW_WORKSPACE}",
+      "workspace": "/home/vandesh/clawd",
       "compaction": {
         "mode": "safeguard"
       },
@@ -63,7 +66,10 @@
         "git",
         "npm",
         "curl",
-        "ls"
+        "ls",
+        "ps",
+        "kill",
+        "pkill"
       ]
     }
   },
