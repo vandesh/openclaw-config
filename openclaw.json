@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.2.17",
-    "lastTouchedAt": "2026-02-19T14:24:01.925Z"
+    "lastTouchedAt": "2026-02-19T14:24:31.514Z"
   },
   "env": {
     "vars": {}
@@ -69,12 +69,7 @@
         "ls",
         "ps",
         "kill",
-        "pkill",
-        "which",
-        "pandoc",
-        "apt-get",
-        "sudo",
-        "mkdir"
+        "pkill"
       ]
     }
   },
