@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.2.17",
-    "lastTouchedAt": "2026-02-20T08:25:59.276Z"
+    "lastTouchedAt": "2026-02-23T10:51:02.923Z"
   },
   "env": {
     "vars": {}
@@ -70,7 +70,11 @@
         "ps",
         "kill",
         "pkill",
-        "grep"
+        "systemctl",
+        "grep",
+        "sed",
+        "cat",
+        "printenv"
       ]
     }
   },
