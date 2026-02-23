@@ -54,7 +54,7 @@
     "web": {
       "search": {
         "enabled": true,
-        "apiKey": "${BRAVE_API_KEY}"
+        "apiKey": ""
       },
       "fetch": {
         "enabled": true
@@ -101,7 +101,7 @@
     "telegram": {
       "enabled": true,
       "dmPolicy": "allowlist",
-      "botToken": "${TELEGRAM_BOT_TOKEN}",
+      "botToken": "",
       "allowFrom": [
         519104694
       ],
@@ -115,7 +115,7 @@
     "bind": "loopback",
     "auth": {
       "mode": "token",
-      "token": "${OPENCLAW_GATEWAY_TOKEN}"
+      "token": ""
     },
     "tailscale": {
       "mode": "off",
@@ -128,13 +128,13 @@
     },
     "entries": {
       "nano-banana-pro": {
-        "apiKey": "${NANO_BANANA_PRO_API_KEY}"
+        "apiKey": ""
       },
       "openai-image-gen": {
-        "apiKey": "${OPENAI_API_KEY}"
+        "apiKey": ""
       },
       "openai-whisper-api": {
-        "apiKey": "${OPENAI_API_KEY}"
+        "apiKey": ""
       }
     }
   },
