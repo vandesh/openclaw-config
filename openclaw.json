@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.2.17",
-    "lastTouchedAt": "2026-02-23T11:16:46.576Z"
+    "lastTouchedAt": "2026-02-20T08:25:59.276Z"
   },
   "env": {
     "vars": {}
@@ -54,7 +54,7 @@
     "web": {
       "search": {
         "enabled": true,
-        "apiKey": ""
+        "apiKey": "${BRAVE_API_KEY}"
       },
       "fetch": {
         "enabled": true
@@ -70,12 +70,7 @@
         "ps",
         "kill",
         "pkill",
-        "mkdir",
-        "tee",
-        "systemctl",
-        "sed",
-        "cat",
-        "node"
+        "grep"
       ]
     }
   },
@@ -101,7 +96,7 @@
     "telegram": {
       "enabled": true,
       "dmPolicy": "allowlist",
-      "botToken": "",
+      "botToken": "${TELEGRAM_BOT_TOKEN}",
       "allowFrom": [
         519104694
       ],
@@ -115,7 +110,7 @@
     "bind": "loopback",
     "auth": {
       "mode": "token",
-      "token": ""
+      "token": "${OPENCLAW_GATEWAY_TOKEN}"
     },
     "tailscale": {
       "mode": "off",
@@ -128,13 +123,13 @@
     },
     "entries": {
       "nano-banana-pro": {
-        "apiKey": ""
+        "apiKey": "${NANO_BANANA_PRO_API_KEY}"
       },
       "openai-image-gen": {
-        "apiKey": ""
+        "apiKey": "${OPENAI_API_KEY}"
       },
       "openai-whisper-api": {
-        "apiKey": ""
+        "apiKey": "${OPENAI_API_KEY}"
       }
     }
   },
